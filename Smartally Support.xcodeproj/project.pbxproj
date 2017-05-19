@@ -8,20 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		75D032461ECEC34900FDB4DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032451ECEC34900FDB4DD /* AppDelegate.swift */; };
-		75D032481ECEC34900FDB4DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032471ECEC34900FDB4DD /* ViewController.swift */; };
-		75D0324B1ECEC34900FDB4DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D032491ECEC34900FDB4DD /* Main.storyboard */; };
 		75D0324D1ECEC34900FDB4DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D0324C1ECEC34900FDB4DD /* Assets.xcassets */; };
-		75D032501ECEC34900FDB4DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0324E1ECEC34900FDB4DD /* LaunchScreen.storyboard */; };
+		75D0325E1ECEC90300FDB4DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0325C1ECEC90300FDB4DD /* LaunchScreen.storyboard */; };
+		75D0325F1ECEC90300FDB4DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0325D1ECEC90300FDB4DD /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		75D032421ECEC34900FDB4DD /* Smartally Support.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smartally Support.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75D032451ECEC34900FDB4DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		75D032471ECEC34900FDB4DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		75D0324A1ECEC34900FDB4DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75D0324C1ECEC34900FDB4DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		75D0324F1ECEC34900FDB4DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75D032511ECEC34900FDB4DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		75D0325C1ECEC90300FDB4DD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Views/Views/Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		75D0325D1ECEC90300FDB4DD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Views/Views/Storyboards/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +53,52 @@
 			isa = PBXGroup;
 			children = (
 				75D032451ECEC34900FDB4DD /* AppDelegate.swift */,
-				75D032471ECEC34900FDB4DD /* ViewController.swift */,
-				75D032491ECEC34900FDB4DD /* Main.storyboard */,
-				75D0324C1ECEC34900FDB4DD /* Assets.xcassets */,
-				75D0324E1ECEC34900FDB4DD /* LaunchScreen.storyboard */,
-				75D032511ECEC34900FDB4DD /* Info.plist */,
+				75D032591ECEC86000FDB4DD /* Controllers */,
+				75D032581ECEC85900FDB4DD /* Models */,
+				75D032571ECEC85300FDB4DD /* Views */,
+				75D0325B1ECEC88100FDB4DD /* Supporting Files */,
 			);
 			path = "Smartally Support";
+			sourceTree = "<group>";
+		};
+		75D032571ECEC85300FDB4DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75D0325A1ECEC86D00FDB4DD /* Storyboards */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		75D032581ECEC85900FDB4DD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		75D032591ECEC86000FDB4DD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		75D0325A1ECEC86D00FDB4DD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				75D0325C1ECEC90300FDB4DD /* LaunchScreen.storyboard */,
+				75D0325D1ECEC90300FDB4DD /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		75D0325B1ECEC88100FDB4DD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				75D0324C1ECEC34900FDB4DD /* Assets.xcassets */,
+				75D032511ECEC34900FDB4DD /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +161,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75D032501ECEC34900FDB4DD /* LaunchScreen.storyboard in Resources */,
+				75D0325F1ECEC90300FDB4DD /* Main.storyboard in Resources */,
 				75D0324D1ECEC34900FDB4DD /* Assets.xcassets in Resources */,
-				75D0324B1ECEC34900FDB4DD /* Main.storyboard in Resources */,
+				75D0325E1ECEC90300FDB4DD /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,31 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75D032481ECEC34900FDB4DD /* ViewController.swift in Sources */,
 				75D032461ECEC34900FDB4DD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		75D032491ECEC34900FDB4DD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75D0324A1ECEC34900FDB4DD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		75D0324E1ECEC34900FDB4DD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				75D0324F1ECEC34900FDB4DD /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		75D032521ECEC34900FDB4DD /* Debug */ = {
@@ -263,6 +280,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6TP9C3Z7N8;
 				INFOPLIST_FILE = "Smartally Support/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitjini.Smartally-Support";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,6 +294,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6TP9C3Z7N8;
 				INFOPLIST_FILE = "Smartally Support/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitjini.Smartally-Support";
 				PRODUCT_NAME = "$(TARGET_NAME)";
