@@ -11,6 +11,14 @@
 		75D0324D1ECEC34900FDB4DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75D0324C1ECEC34900FDB4DD /* Assets.xcassets */; };
 		75D0325E1ECEC90300FDB4DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0325C1ECEC90300FDB4DD /* LaunchScreen.storyboard */; };
 		75D0325F1ECEC90300FDB4DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75D0325D1ECEC90300FDB4DD /* Main.storyboard */; };
+		75D032611ECECD5700FDB4DD /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032601ECECD5700FDB4DD /* LoginRegisterViewController.swift */; };
+		75D032631ECECD6C00FDB4DD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032621ECECD6C00FDB4DD /* BaseViewController.swift */; };
+		75D032651ECECDB300FDB4DD /* JobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032641ECECDB300FDB4DD /* JobsViewController.swift */; };
+		75D032671ECECDC200FDB4DD /* JobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032661ECECDC200FDB4DD /* JobViewController.swift */; };
+		75D032691ECECDD100FDB4DD /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032681ECECDD100FDB4DD /* Job.swift */; };
+		75D0326F1ECECF6C00FDB4DD /* Registrar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D0326E1ECECF6C00FDB4DD /* Registrar.swift */; };
+		75D032711ECED0A100FDB4DD /* HTTPUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032701ECED0A100FDB4DD /* HTTPUtility.swift */; };
+		75D032731ECED0BA00FDB4DD /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032721ECED0BA00FDB4DD /* Middleware.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +28,14 @@
 		75D032511ECEC34900FDB4DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75D0325C1ECEC90300FDB4DD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Views/Views/Storyboards/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75D0325D1ECEC90300FDB4DD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Views/Views/Storyboards/Main.storyboard; sourceTree = "<group>"; };
+		75D032601ECECD5700FDB4DD /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginRegisterViewController.swift; path = Controllers/LoginRegisterViewController.swift; sourceTree = "<group>"; };
+		75D032621ECECD6C00FDB4DD /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Controllers/BaseViewController.swift; sourceTree = "<group>"; };
+		75D032641ECECDB300FDB4DD /* JobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobsViewController.swift; path = Controllers/JobsViewController.swift; sourceTree = "<group>"; };
+		75D032661ECECDC200FDB4DD /* JobViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobViewController.swift; path = Controllers/JobViewController.swift; sourceTree = "<group>"; };
+		75D032681ECECDD100FDB4DD /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Job.swift; path = Models/Job.swift; sourceTree = "<group>"; };
+		75D0326E1ECECF6C00FDB4DD /* Registrar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Registrar.swift; path = "Custom Classes/Registrar.swift"; sourceTree = "<group>"; };
+		75D032701ECED0A100FDB4DD /* HTTPUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPUtility.swift; path = Utilities/HTTPUtility.swift; sourceTree = "<group>"; };
+		75D032721ECED0BA00FDB4DD /* Middleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Middleware.swift; path = Utilities/Middleware.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +70,9 @@
 			children = (
 				75D032451ECEC34900FDB4DD /* AppDelegate.swift */,
 				75D032591ECEC86000FDB4DD /* Controllers */,
+				75D0326B1ECECF0800FDB4DD /* Custom Classes */,
 				75D032581ECEC85900FDB4DD /* Models */,
+				75D0326A1ECECEE400FDB4DD /* Utilities */,
 				75D032571ECEC85300FDB4DD /* Views */,
 				75D0325B1ECEC88100FDB4DD /* Supporting Files */,
 			);
@@ -72,6 +90,7 @@
 		75D032581ECEC85900FDB4DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				75D032681ECECDD100FDB4DD /* Job.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -79,6 +98,10 @@
 		75D032591ECEC86000FDB4DD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				75D032621ECECD6C00FDB4DD /* BaseViewController.swift */,
+				75D032601ECECD5700FDB4DD /* LoginRegisterViewController.swift */,
+				75D032641ECECDB300FDB4DD /* JobsViewController.swift */,
+				75D032661ECECDC200FDB4DD /* JobViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -99,6 +122,23 @@
 				75D032511ECEC34900FDB4DD /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		75D0326A1ECECEE400FDB4DD /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				75D032701ECED0A100FDB4DD /* HTTPUtility.swift */,
+				75D032721ECED0BA00FDB4DD /* Middleware.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		75D0326B1ECECF0800FDB4DD /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				75D0326E1ECECF6C00FDB4DD /* Registrar.swift */,
+			);
+			name = "Custom Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +214,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D032731ECED0BA00FDB4DD /* Middleware.swift in Sources */,
+				75D032711ECED0A100FDB4DD /* HTTPUtility.swift in Sources */,
+				75D032651ECECDB300FDB4DD /* JobsViewController.swift in Sources */,
+				75D032691ECECDD100FDB4DD /* Job.swift in Sources */,
 				75D032461ECEC34900FDB4DD /* AppDelegate.swift in Sources */,
+				75D032611ECECD5700FDB4DD /* LoginRegisterViewController.swift in Sources */,
+				75D0326F1ECECF6C00FDB4DD /* Registrar.swift in Sources */,
+				75D032671ECECDC200FDB4DD /* JobViewController.swift in Sources */,
+				75D032631ECECD6C00FDB4DD /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
