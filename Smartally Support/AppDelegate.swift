@@ -15,8 +15,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        isLoggedIn()
         return true
+    }
+    
+    func isLoggedIn() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let root = !UserDefaults.standard.bool(forKey: "isLoggedIn") ?
+            storyboard.instantiateViewController(withIdentifier: "LoginRegisterViewController") as! LoginRegisterViewController :
+            storyboard.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
+        let nav = UINavigationController(rootViewController: root)
+        
+        window?.rootViewController = nav
+        window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

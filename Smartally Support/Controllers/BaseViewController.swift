@@ -9,6 +9,10 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    // Class Instances.
+    // Indicator.
+    lazy var indicator: ILIndicator = ILIndicator()
 
     override func viewDidLoad() {
         super.viewDidLoad()

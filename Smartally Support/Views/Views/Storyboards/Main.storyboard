@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login Register View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Smartally_Support" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginRegisterViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginRegisterViewController" customModule="Smartally_Support" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="height" constant="40" id="pVP-xm-D2q"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1Q-rd-UGz">
@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="40" id="cje-gk-Bdj"/>
                                 </constraints>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FB9-gk-62S">
@@ -57,6 +57,9 @@
                                         <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonLoginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yZa-zH-7yu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbH-g2-X9S">
                                 <rect key="frame" x="197.5" y="150" width="147.5" height="48"/>
@@ -75,6 +78,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonSignUpAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sAq-c9-0jH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,15 +101,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="qJo-u3-aLP"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="buttonSignUp" destination="RbH-g2-X9S" id="Hwt-cn-aM8"/>
+                        <outlet property="textFieldPassword" destination="q1Q-rd-UGz" id="wWh-fl-aW6"/>
+                        <outlet property="textFieldUsername" destination="bsE-Nl-hmf" id="bww-UL-HpN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1004" y="-561"/>
         </scene>
-        <!--View Controller-->
+        <!--Jobs View Controller-->
         <scene sceneID="ht4-ju-aE8">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="3n0-Yy-VNc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JobsViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3n0-Yy-VNc" customClass="JobsViewController" customModule="Smartally_Support" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vg5-zZ-pZv"/>
                         <viewControllerLayoutGuide type="bottom" id="05J-de-9HP"/>
@@ -115,6 +126,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fWe-4s-jul">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="3n0-Yy-VNc" id="CST-fS-VzY"/>
+                                    <outlet property="delegate" destination="3n0-Yy-VNc" id="bmy-F6-seI"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,7 +167,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8te-AR-ARR">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zbR-Iy-oQg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="JobsNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zbR-Iy-oQg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xrI-ZP-E00">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

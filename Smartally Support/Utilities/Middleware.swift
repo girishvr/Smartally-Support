@@ -12,32 +12,40 @@ class Middleware {
     
     // Class' shared instance.
     static let shared = Middleware()
+    // Http Utility Class' instance.
+    lazy var http: HTTPUtility = {
+        let http = HTTPUtility.shared
+        http.delegate = self.delegate
+        return http
+    }()
     // Delegate.
-    //var delegate:
+    var delegate: HTTPUtilityDelegate?
     
     // URLs.
     private let baseURL = "https://smartallysupport.herokuapp.com/api/"
     
-    fileprivate var register: URL? {
+    fileprivate var register: String {
         get {
-            return URL(string: baseURL + "register/")
+            return baseURL + "register/"
         }
     }
     
-    fileprivate var login: URL? {
+    fileprivate var login: String {
         get {
-            return URL(string: baseURL + "login/")
+            return baseURL + "login/"
         }
     }
 }
 
 extension Middleware {
-    
+    // Login & Register.
     func register(username usn: String, password pwd: String) {
-        
+        let parameter = ["username" : usn, "password" : pwd]
+        http.send(url: register, method: .post, parameters: parameter)
     }
     
     func login(username usn: String, password pwd: String) {
-        
+        let parameter = ["username" : usn, "password" : pwd]
+        http.send(url: login, method: .post, parameters: parameter)
     }
 }
