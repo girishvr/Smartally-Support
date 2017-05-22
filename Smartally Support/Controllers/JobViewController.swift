@@ -6,6 +6,7 @@
 //  Copyright © 2017 Bitjini. All rights reserved.
 //
 
+import IQKeyboardManagerSwift
 import UIKit
 
 class JobViewController: BaseViewController {
@@ -39,6 +40,7 @@ class JobViewController: BaseViewController {
     
     // @IBAction.
     @IBAction func buttonUpdateAction(_ sender: UIButton) {
+        endEditing()
         do
         {
             try validate()
@@ -60,6 +62,7 @@ extension JobViewController: UpdateJobDelegate {
         if job.name.isEmpty   { throw ValidationError.name }
         if job.amount.isEmpty { throw ValidationError.amount }
         
+        indicator.start(onView: view)
         updateJob.updateJob(job: job)
     }
     
@@ -67,7 +70,9 @@ extension JobViewController: UpdateJobDelegate {
         // Remove the updated job, and pop VC.
         for (i, job) in Job.jobs.enumerated() {
             if job == self.job {
+                print(job, self.job)
                 Job.jobs.remove(at: i)
+                indicator.stop()
                 navigationController?.popViewController(animated: true)
                 break
             }
@@ -104,30 +109,32 @@ extension JobViewController: UITableViewDataSource, UITableViewDelegate {
 extension JobViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
-        decimalCount = 0
+        if textField.tag == 1 {
+            textField.text = ""
+            decimalCount = 0
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if string == "." {
-            return reachedDecimal(range)
+        if textField.tag == 1 {
+            
+            if string == "." && (textField.text ?? "").contains(".") { return false }
+            
+            if string == "." {
+                return reachedDecimal(range)
+            }
+            else if decimalCount > 0 {
+                return afterDecimal(range)
+            }
         }
-        else if decimalCount > 0 {
-            return afterDecimal(range)
-        }
+        
         return true
     }
     
     // Algorithm for %.2f decimal places
     func reachedDecimal(_ range: NSRange) -> Bool {
-        if range.length == 0 {
-            decimalCount += 1
-            return true
-        }
-        else {
-            decimalCount = 0
-            return true
-        }
+        decimalCount = range.length == 0 ? decimalCount + 1 : 0
+        return true
     }
     
     func afterDecimal(_ range: NSRange) -> Bool {
@@ -136,15 +143,10 @@ extension JobViewController: UITextFieldDelegate {
                 decimalCount += 1
                 return true
             }
-            else {
-                return false
-            }
+            return false
         }
-            
-        else {
-            decimalCount -= 1
-            return true
-        }
+        decimalCount -= 1
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

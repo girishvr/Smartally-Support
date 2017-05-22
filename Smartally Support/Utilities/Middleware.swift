@@ -15,7 +15,6 @@ class Middleware {
     // Http Utility Class' instance.
     lazy var http: HTTPUtility = {
         let http = HTTPUtility.shared
-        http.delegate = self.delegate
         return http
     }()
     // Delegate.

@@ -20,8 +20,8 @@ class GetJob {
     
     // Class Instances.
     lazy var middleware: Middleware = {
-        var middleware = Middleware()
-        middleware.delegate = self
+        var middleware = Middleware.shared
+        middleware.http.delegate = self
         return middleware
     }()
     

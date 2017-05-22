@@ -43,14 +43,10 @@ extension HTTPUtility {
     
     private func success(_ data: Any?) {
         guard let data = data as? [String : AnyObject] else { failure(nil); return }
-        DispatchQueue.main.async {
-            self.delegate?.completedRequest(response: data)
-        }
+        self.delegate?.completedRequest(response: data)
     }
     
     private func failure(_ data: Error?) {
-        DispatchQueue.main.async {
-            self.delegate?.failedRequest(response: data?.localizedDescription ?? "Unknown response." )
-        }
+        self.delegate?.failedRequest(response: data?.localizedDescription ?? "Unknown response." )
     }
 }

@@ -14,11 +14,11 @@ class JobsViewController: BaseViewController {
     var didLoad: Bool = false
     
     // Class Instance.
-    lazy var job: GetJob = {
+    var job: GetJob {
        let job = GetJob()
         job.delegate = self
         return job
-    }()
+    }
     
     lazy var refreshController: UIRefreshControl = {
         let control = UIRefreshControl()
@@ -37,7 +37,7 @@ class JobsViewController: BaseViewController {
     }
     
     func onViewDidAppear() {
-        if didLoad { reload(); return }
+        if didLoad { tableViewJobs.reloadData(); return }
         didLoad = true
         getJobs()
         indicator.start(onView: view)

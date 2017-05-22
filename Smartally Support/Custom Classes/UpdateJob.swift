@@ -20,8 +20,8 @@ class UpdateJob {
     
     // Class instance.
     lazy var middleware: Middleware = {
-        let middleware = Middleware()
-        middleware.delegate = self
+        let middleware = Middleware.shared
+        middleware.http.delegate = self
         return middleware
     }()
     
