@@ -6,14 +6,14 @@
 //  Copyright © 2017 Bitjini. All rights reserved.
 //
 
+import IQKeyboardManagerSwift
 import UIKit
 
 class LoginRegisterViewController: BaseViewController {
     
     // Enum.
     enum ValidationError: Error {
-        case mandatory
-        case password
+        case mandatory, name, password, passwordLength
     }
     
     // MARK: @IBOutlets.
@@ -30,27 +30,29 @@ class LoginRegisterViewController: BaseViewController {
     
     // Lifecycle Methods.
     override func viewDidLoad() { super.viewDidLoad(); onViewDidLoad() }
+    // View Methods.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { super.touchesBegan(touches, with: event); endEditing() }
     
     func onViewDidLoad() {
         buttonSignUp.border(color: .darkGray)
     }
-    
-    // Error to User interface.
-    func dropBanner(withString message: String) {
-        let banner = ILBanner(title: "Error Occurred",
-                              subtitle: message, image: nil,
-                              backgroundColor: .white)
-        banner.dismissesOnTap = true
-        banner.dismissesOnSwipe = true
-        banner.show(view, duration: 3.0)
+}
+
+// MARK: UITextField delegates.
+extension LoginRegisterViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let manager = IQKeyboardManager.sharedManager()
+        if manager.canGoNext { manager.goNext() }
+        else { endEditing() }
+        return true
     }
 }
 
-// MARK: @IBActions.
+// MARK: @IBActions, Login, register flow.
 extension LoginRegisterViewController: RegistrarDelegate {
     
-    @IBAction func buttonSignUpAction(_ sender: UIButton) { initRequest(shouldLogin: false) }
-    @IBAction func buttonLoginAction(_ sender: UIButton) { initRequest(shouldLogin: true) }
+    @IBAction func buttonSignUpAction(_ sender: UIButton) { endEditing(); initRequest(shouldLogin: false) }
+    @IBAction func buttonLoginAction(_ sender: UIButton) { endEditing(); initRequest(shouldLogin: true) }
     
     func initRequest(shouldLogin: Bool) {
         do
@@ -60,7 +62,13 @@ extension LoginRegisterViewController: RegistrarDelegate {
         catch ValidationError.mandatory {
             dropBanner(withString: "All fields are mandatory.")
         }
+        catch ValidationError.name {
+            dropBanner(withString: "Username can't be blank.")
+        }
         catch ValidationError.password {
+            dropBanner(withString: "Password needs to be 6-16 letters long.")
+        }
+        catch ValidationError.passwordLength {
             dropBanner(withString: "Password needs to be 6-16 letters long.")
         }
         catch {} // Never called.
@@ -69,8 +77,9 @@ extension LoginRegisterViewController: RegistrarDelegate {
     func validate(shouldLogin: Bool) throws {
         // If either of the fields are empty throw error.
         guard let username = textFieldUsername.text, let password = textFieldPassword.text else { throw ValidationError.mandatory }
-        // If password isn't 6-16 in length.
-        if password.characters.count < 6 || password.characters.count > 16 { throw ValidationError.password }
+        if username.isEmpty { throw ValidationError.name }
+        if password.isEmpty { throw ValidationError.password }
+        if password.characters.count < 6 || password.characters.count > 16 { throw ValidationError.passwordLength }
         // Login or Register.
         indicator.start(onView: view)
         registrar.send(shouldLogin: shouldLogin, username: username, password: password)

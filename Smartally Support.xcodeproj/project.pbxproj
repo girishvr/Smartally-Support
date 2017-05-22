@@ -25,6 +25,10 @@
 		75D4E3241ED01826008E8DBD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4E3231ED01826008E8DBD /* Constants.swift */; };
 		75D4E3261ED01BC0008E8DBD /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4E3251ED01BC0008E8DBD /* General.swift */; };
 		75D4E3281ED01C07008E8DBD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4E3271ED01C07008E8DBD /* Extensions.swift */; };
+		75D4E32C1ED035BD008E8DBD /* JobsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4E32B1ED035BD008E8DBD /* JobsTableViewCell.swift */; };
+		75D4E32E1ED03ECD008E8DBD /* GetJobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4E32D1ED03ECD008E8DBD /* GetJobs.swift */; };
+		75D4E3301ED03EDE008E8DBD /* UpdateJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4E32F1ED03EDE008E8DBD /* UpdateJob.swift */; };
+		75D4E3321ED043D2008E8DBD /* JobTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4E3311ED043D2008E8DBD /* JobTableViewCell.swift */; };
 		E04105A911136090FAFB6B2A /* Pods_Smartally_Support.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E3F793B0E82C7ED3EE35A4 /* Pods_Smartally_Support.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +53,10 @@
 		75D4E3231ED01826008E8DBD /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Utilities/Constants.swift; sourceTree = "<group>"; };
 		75D4E3251ED01BC0008E8DBD /* General.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = General.swift; path = "Custom Classes/General.swift"; sourceTree = "<group>"; };
 		75D4E3271ED01C07008E8DBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Utilities/Extensions.swift; sourceTree = "<group>"; };
+		75D4E32B1ED035BD008E8DBD /* JobsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobsTableViewCell.swift; path = "Custom Cells/JobsTableViewCell.swift"; sourceTree = "<group>"; };
+		75D4E32D1ED03ECD008E8DBD /* GetJobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GetJobs.swift; path = "Custom Classes/GetJobs.swift"; sourceTree = "<group>"; };
+		75D4E32F1ED03EDE008E8DBD /* UpdateJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateJob.swift; path = "Custom Classes/UpdateJob.swift"; sourceTree = "<group>"; };
+		75D4E3311ED043D2008E8DBD /* JobTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobTableViewCell.swift; path = "Custom Cells/JobTableViewCell.swift"; sourceTree = "<group>"; };
 		C8E3F793B0E82C7ED3EE35A4 /* Pods_Smartally_Support.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smartally_Support.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4F4D9C4EEFE62988E132D14 /* Pods-Smartally Support.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smartally Support.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smartally Support/Pods-Smartally Support.debug.xcconfig"; sourceTree = "<group>"; };
 		EA04F1833241F29E8C9A52DE /* Pods-Smartally Support.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smartally Support.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smartally Support/Pods-Smartally Support.release.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +115,7 @@
 				75D032451ECEC34900FDB4DD /* AppDelegate.swift */,
 				75D032591ECEC86000FDB4DD /* Controllers */,
 				75D0326B1ECECF0800FDB4DD /* Custom Classes */,
+				75D4E32A1ED03590008E8DBD /* Custom Cells */,
 				75D032761ECF0E1400FDB4DD /* Custom Views */,
 				75D032581ECEC85900FDB4DD /* Models */,
 				75D0326A1ECECEE400FDB4DD /* Utilities */,
@@ -178,6 +187,8 @@
 			children = (
 				75D4E3251ED01BC0008E8DBD /* General.swift */,
 				75D0326E1ECECF6C00FDB4DD /* Registrar.swift */,
+				75D4E32D1ED03ECD008E8DBD /* GetJobs.swift */,
+				75D4E32F1ED03EDE008E8DBD /* UpdateJob.swift */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -189,6 +200,15 @@
 				75D4E3211ED016C8008E8DBD /* ILIndicator.swift */,
 			);
 			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		75D4E32A1ED03590008E8DBD /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				75D4E32B1ED035BD008E8DBD /* JobsTableViewCell.swift */,
+				75D4E3311ED043D2008E8DBD /* JobTableViewCell.swift */,
+			);
+			name = "Custom Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +338,7 @@
 				75D4E3201ED016B3008E8DBD /* ILBanner.swift in Sources */,
 				75D032731ECED0BA00FDB4DD /* Middleware.swift in Sources */,
 				75D032711ECED0A100FDB4DD /* HTTPUtility.swift in Sources */,
+				75D4E32C1ED035BD008E8DBD /* JobsTableViewCell.swift in Sources */,
 				75D032651ECECDB300FDB4DD /* JobsViewController.swift in Sources */,
 				75D032691ECECDD100FDB4DD /* Job.swift in Sources */,
 				75D032461ECEC34900FDB4DD /* AppDelegate.swift in Sources */,
@@ -327,9 +348,12 @@
 				75D0326F1ECECF6C00FDB4DD /* Registrar.swift in Sources */,
 				75D4E3281ED01C07008E8DBD /* Extensions.swift in Sources */,
 				75D032671ECECDC200FDB4DD /* JobViewController.swift in Sources */,
+				75D4E32E1ED03ECD008E8DBD /* GetJobs.swift in Sources */,
 				75D032751ECEF94600FDB4DD /* User.swift in Sources */,
 				75D4E3261ED01BC0008E8DBD /* General.swift in Sources */,
+				75D4E3301ED03EDE008E8DBD /* UpdateJob.swift in Sources */,
 				75D032631ECECD6C00FDB4DD /* BaseViewController.swift in Sources */,
+				75D4E3321ED043D2008E8DBD /* JobTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

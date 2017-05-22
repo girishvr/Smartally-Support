@@ -6,6 +6,8 @@
 //  Copyright © 2017 Bitjini. All rights reserved.
 //
 
+import IQKeyboardManagerSwift
+import Kingfisher
 import UIKit
 
 @UIApplicationMain
@@ -15,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // IQKeyboardManager preferences.
+        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.sharedManager().enableAutoToolbar = false
+        // Show login screen if app isn't logged in.
         isLoggedIn()
         return true
     }
@@ -25,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             storyboard.instantiateViewController(withIdentifier: "LoginRegisterViewController") as! LoginRegisterViewController :
             storyboard.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
         let nav = UINavigationController(rootViewController: root)
-        
+        nav.navigationBar.tintColor = .darkGray
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }

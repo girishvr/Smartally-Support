@@ -14,26 +14,24 @@ class BaseViewController: UIViewController {
     // Indicator.
     lazy var indicator: ILIndicator = ILIndicator()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidLoad() { super.viewDidLoad() }
+    
+    // End editing.
+    func endEditing() {
+        view.endEditing(true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Error to User interface.
+    func dropBanner(withString message: String) {
+        let banner = ILBanner(title: "Error Occurred",
+                              subtitle: message, image: nil,
+                              backgroundColor: .white)
+        banner.titleLabel.textColor = .darkGray
+        banner.detailLabel.textColor = .darkGray
+        banner.dismissesOnTap = true
+        banner.dismissesOnSwipe = true
+        banner.show(navigationController?.view ?? view, duration: 3.0)
     }
-    */
-
 }
+
+

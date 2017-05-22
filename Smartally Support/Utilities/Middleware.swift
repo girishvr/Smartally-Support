@@ -35,6 +35,18 @@ class Middleware {
             return baseURL + "login/"
         }
     }
+    
+    fileprivate var get: String {
+        get {
+            return baseURL + "job/"
+        }
+    }
+    
+    fileprivate var update: String {
+        get {
+            return baseURL + "job?id="
+        }
+    }
 }
 
 extension Middleware {
@@ -47,5 +59,16 @@ extension Middleware {
     func login(username usn: String, password pwd: String) {
         let parameter = ["username" : usn, "password" : pwd]
         http.send(url: login, method: .post, parameters: parameter)
+    }
+}
+
+extension Middleware {
+    // Get & Update Jobs.
+    func getJobs() {
+        http.send(url: get, method: .get)
+    }
+    
+    func updateJob(withID id: String, parameters: [String : String]) {
+        http.send(url: update + id, method: .put, parameters: parameters)
     }
 }

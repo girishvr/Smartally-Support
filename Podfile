@@ -8,5 +8,6 @@ target 'Smartally Support' do
   # Pods for Smartally Support
   pod 'Alamofire', '~> 4.4'
   pod 'IQKeyboardManagerSwift', '~> 4.0.9'
+  pod 'Kingfisher', '~> 3.9.1'
 
 end

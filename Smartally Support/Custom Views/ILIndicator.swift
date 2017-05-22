@@ -22,7 +22,7 @@ class ILIndicator: UIView {
     
     private func makeViews() {
         // Set background color of main view.
-        backgroundColor = .black; layer.opacity = 0.3
+        backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
         // Add a view to place indicator upon.
         let view = UIView(frame: CGRect(x: (Constants.width / 2.0) - 75.0, y: (Constants.height / 2.0) - 75.0,
                                          width: 150.0, height: 150.0))
@@ -31,7 +31,9 @@ class ILIndicator: UIView {
         addSubview(view)
         // Make and add indicator.
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicator.color = .darkGray
         indicator.startAnimating()
+        indicator.center = CGPoint(x: view.bounds.width / 2.0, y: view.bounds.height / 2.0)
         view.addSubview(indicator)
     }
     
