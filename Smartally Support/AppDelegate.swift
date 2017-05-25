@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let root = !UserDefaults.standard.bool(forKey: "isLoggedIn") ?
             storyboard.instantiateViewController(withIdentifier: "LoginRegisterViewController") as! LoginRegisterViewController :
-            storyboard.instantiateViewController(withIdentifier: "JobsViewController") as! JobsViewController
+            storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
         let nav = UINavigationController(rootViewController: root)
         nav.navigationBar.tintColor = .darkGray
         window?.rootViewController = nav

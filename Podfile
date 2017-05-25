@@ -10,5 +10,6 @@ target 'Smartally Support' do
   pod 'IQKeyboardManagerSwift', '~> 4.0.9'
   pod 'Kingfisher', '~> 3.9.1'
   pod 'Firebase/Core'
+  pod 'Koloda', '~> 4.0'
 
 end

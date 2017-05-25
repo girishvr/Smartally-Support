@@ -16,6 +16,8 @@ class Job {
         var imageEp: URL?
         var name: String = ""
         var amount: String = ""
+        var date: Date?
+        var invoice: String = ""
         
         init(with jobJSON: [String : AnyObject]) {
             if let value = jobJSON["_id"] as? String { ID = value }
@@ -25,11 +27,23 @@ class Job {
             if let value = jobJSON["name"] as? String { name = value }
             
             if let value = jobJSON["amount"] as? String { amount = value }
+            
+            if let value = jobJSON["invoiceNo"] as? String { invoice = value }
+            
+            if let value = jobJSON["billDate"] as? String {
+                guard let date = value.ISOToDate() else { return }
+                self.date = date
+            }
         }
     }
     
     // Container.
     static var jobs = [Job]()
+    
+    // Modifiers.
+    static func deleteJob(byID ID: String) {
+        jobs = jobs.filter({ $0.ID != ID })
+    }
 }
 
 extension Job.Job: Equatable {
@@ -37,5 +51,7 @@ extension Job.Job: Equatable {
         return lhs.ID == rhs.ID
     }
 }
+
+
 
 

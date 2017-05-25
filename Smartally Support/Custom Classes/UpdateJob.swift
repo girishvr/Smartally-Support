@@ -9,11 +9,13 @@
 import Foundation
 
 protocol UpdateJobDelegate {
-    func updated()
+    func updated(jobWithID ID: String)
     func failed(withError error: String)
 }
 
 class UpdateJob {
+    
+    var ongoingJobID: String = ""
     
     // Delegate.
     var delegate: UpdateJobDelegate?
@@ -33,6 +35,7 @@ class UpdateJob {
             "userid" : User.id
         ]
         // Update.
+        ongoingJobID = job.ID
         middleware.updateJob(withID: job.ID, parameters: parameter)
     }
 }
@@ -45,7 +48,7 @@ extension UpdateJob: HTTPUtilityDelegate {
             failedRequest(response: response["message"] as? String ?? "Some error occurred.")
             return
         }
-        delegate?.updated()
+        delegate?.updated(jobWithID: ongoingJobID)
     }
     
     func failedRequest(response: String) {
