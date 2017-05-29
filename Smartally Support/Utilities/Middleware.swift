@@ -6,6 +6,7 @@
 //  Copyright © 2017 Bitjini. All rights reserved.
 //
 
+import FirebaseMessaging
 import UIKit
 
 class Middleware {
@@ -56,7 +57,7 @@ extension Middleware {
     }
     
     func login(username usn: String, password pwd: String) {
-        let parameter = ["username" : usn, "password" : pwd]
+        let parameter = ["username" : usn, "password" : pwd, "identifier" : Messaging.messaging().fcmToken ?? ""]
         http.send(url: login, method: .post, parameters: parameter)
     }
 }

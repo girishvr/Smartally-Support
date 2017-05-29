@@ -11,31 +11,16 @@ import UIKit
 
 class LoginRegisterViewController: BaseViewController {
     
-    // Enum.
-    enum ValidationError: Error {
-        case mandatory, name, password, passwordLength
-    }
-    
     // MARK: @IBOutlets.
     @IBOutlet weak var textFieldUsername: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
     @IBOutlet weak var buttonSignUp: UIButton!
     
-    // Class instances.
-    lazy var registrar: Registrar = {
-        let regis = Registrar()
-        regis.delegate = self
-        return regis
-    }()
-    
     // Lifecycle Methods.
     override func viewDidLoad() { super.viewDidLoad(); onViewDidLoad() }
     // View Methods.
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { super.touchesBegan(touches, with: event); endEditing() }
-    
-    func onViewDidLoad() {
-        buttonSignUp.border(color: .darkGray)
-    }
+    func onViewDidLoad() { buttonSignUp.border(color: .darkGray) }
 }
 
 // MARK: UITextField delegates.
@@ -51,38 +36,28 @@ extension LoginRegisterViewController: UITextFieldDelegate {
 // MARK: @IBActions, Login, register flow.
 extension LoginRegisterViewController: RegistrarDelegate {
     
-    @IBAction func buttonSignUpAction(_ sender: UIButton) { endEditing(); initRequest(shouldLogin: false) }
-    @IBAction func buttonLoginAction(_ sender: UIButton) { endEditing(); initRequest(shouldLogin: true) }
+    @IBAction func buttonSignUpAction(_ sender: UIButton) { endEditing(); initRequest() }
+    @IBAction func buttonLoginAction(_ sender: UIButton) { endEditing(); initRequest(shouldRegister: false) }
     
-    func initRequest(shouldLogin: Bool) {
+    func initRequest(shouldRegister: Bool = true) {
+        let credential = Registrar.Credential(username: textFieldUsername.text ?? "", password: textFieldPassword.text ?? "")
         do
         {
-            try validate(shouldLogin: shouldLogin)
+            try Validator.validate(credential: credential) // Validate.
+            indicator.start(onView: view)
+            let registrar = Registrar(credential: credential, shouldRegister: shouldRegister)
+            registrar.delegate = self
         }
-        catch ValidationError.mandatory {
-            dropBanner(withString: "All fields are mandatory.")
-        }
-        catch ValidationError.name {
+        catch Validator.Err.username {
             dropBanner(withString: "Username can't be blank.")
         }
-        catch ValidationError.password {
-            dropBanner(withString: "Password needs to be 6-16 letters long.")
+        catch Validator.Err.password {
+            dropBanner(withString: "Password can't be blank.")
         }
-        catch ValidationError.passwordLength {
+        catch Validator.Err.passwordLength {
             dropBanner(withString: "Password needs to be 6-16 letters long.")
         }
         catch {} // Never called.
-    }
-    
-    func validate(shouldLogin: Bool) throws {
-        // If either of the fields are empty throw error.
-        guard let username = textFieldUsername.text, let password = textFieldPassword.text else { throw ValidationError.mandatory }
-        if username.isEmpty { throw ValidationError.name }
-        if password.isEmpty { throw ValidationError.password }
-        if password.characters.count < 6 || password.characters.count > 16 { throw ValidationError.passwordLength }
-        // Login or Register.
-        indicator.start(onView: view)
-        registrar.send(shouldLogin: shouldLogin, username: username, password: password)
     }
     
     // Upon failing of login or register this delegate is called.

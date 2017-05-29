@@ -24,7 +24,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3p-2w-Fl8">
                             <rect key="frame" x="0.0" y="293" width="304" height="91"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Merchant Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Opi-OB-oqy">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Merchant Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Opi-OB-oqy">
                                     <rect key="frame" x="8" y="8" width="288" height="25"/>
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -33,8 +33,11 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="iN0-l3-epB" id="RhV-06-a1u"/>
+                                    </connections>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SLk-Sa-cWC">
+                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SLk-Sa-cWC">
                                     <rect key="frame" x="8" y="33" width="140" height="25"/>
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -43,8 +46,11 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="iN0-l3-epB" id="v9l-mo-mEH"/>
+                                    </connections>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Invoice Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veP-Nr-bsC">
+                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Invoice Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veP-Nr-bsC">
                                     <rect key="frame" x="8" y="58" width="288" height="25"/>
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -53,6 +59,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="iN0-l3-epB" id="DGG-TL-Jh8"/>
+                                    </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xWk-zR-umO">
                                     <rect key="frame" x="156" y="33" width="140" height="25"/>
@@ -61,6 +70,12 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUa-pC-2T5">
+                                    <rect key="frame" x="156" y="33" width="140" height="25"/>
+                                    <connections>
+                                        <action selector="showDatePicker:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZUE-uX-PuP"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -68,16 +83,20 @@
                                 <constraint firstItem="xWk-zR-umO" firstAttribute="top" secondItem="Opi-OB-oqy" secondAttribute="bottom" id="BLp-lg-ejq"/>
                                 <constraint firstItem="Opi-OB-oqy" firstAttribute="top" secondItem="H3p-2w-Fl8" secondAttribute="top" constant="8" id="CIU-za-5q7"/>
                                 <constraint firstItem="Opi-OB-oqy" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="EHa-zz-VjO"/>
+                                <constraint firstItem="veP-Nr-bsC" firstAttribute="top" secondItem="UUa-pC-2T5" secondAttribute="bottom" id="FI0-Un-kJE"/>
                                 <constraint firstItem="xWk-zR-umO" firstAttribute="width" secondItem="SLk-Sa-cWC" secondAttribute="width" id="G8n-Z2-RiT"/>
                                 <constraint firstAttribute="bottom" secondItem="veP-Nr-bsC" secondAttribute="bottom" constant="8" id="N5L-c8-7MR"/>
                                 <constraint firstAttribute="trailing" secondItem="Opi-OB-oqy" secondAttribute="trailing" constant="8" id="Pdu-oh-9rc"/>
                                 <constraint firstItem="xWk-zR-umO" firstAttribute="leading" secondItem="SLk-Sa-cWC" secondAttribute="trailing" constant="8" id="Ri4-Ms-wiE"/>
+                                <constraint firstItem="UUa-pC-2T5" firstAttribute="top" secondItem="Opi-OB-oqy" secondAttribute="bottom" id="Rxl-nM-WuO"/>
                                 <constraint firstItem="SLk-Sa-cWC" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="VMB-wZ-qhB"/>
                                 <constraint firstAttribute="trailing" secondItem="xWk-zR-umO" secondAttribute="trailing" constant="8" id="WBq-1L-3g2"/>
                                 <constraint firstItem="SLk-Sa-cWC" firstAttribute="top" secondItem="Opi-OB-oqy" secondAttribute="bottom" id="cW8-AJ-wFE"/>
                                 <constraint firstItem="veP-Nr-bsC" firstAttribute="top" secondItem="xWk-zR-umO" secondAttribute="bottom" id="dpk-AM-Utp"/>
                                 <constraint firstItem="veP-Nr-bsC" firstAttribute="top" secondItem="SLk-Sa-cWC" secondAttribute="bottom" id="k0w-vD-URC"/>
+                                <constraint firstItem="UUa-pC-2T5" firstAttribute="leading" secondItem="SLk-Sa-cWC" secondAttribute="trailing" constant="8" id="nYc-Eb-oEs"/>
                                 <constraint firstItem="veP-Nr-bsC" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="tAe-FO-Ner"/>
+                                <constraint firstAttribute="trailing" secondItem="UUa-pC-2T5" secondAttribute="trailing" constant="8" id="y6k-Td-29j"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

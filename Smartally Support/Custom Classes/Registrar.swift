@@ -14,7 +14,16 @@ protocol RegistrarDelegate {
 
 class Registrar {
     
-    static var shared: Registrar = Registrar()
+    // Structs.
+    struct Credential {
+        var username: String
+        var password: String
+        
+        init(username: String, password: String) {
+            self.username = username
+            self.password = password
+        }
+    }
     
     // Middleware.
     lazy var middleware: Middleware = {
@@ -22,13 +31,26 @@ class Registrar {
         middleware.http.delegate = self
         return middleware
     }()
-
+    
     // Delegate.
     var delegate: RegistrarDelegate?
+    // Credential.
+    var credential: Credential
+    // Flag to determine which action to perform.
+    var shouldRegister: Bool
+    
+    // Init.
+    init(credential: Credential, shouldRegister: Bool = true) {
+        self.credential = credential
+        self.shouldRegister = shouldRegister
+        self.send()
+    }
     
     // Send request.
-    func send(shouldLogin: Bool, username: String, password: String) {
-        shouldLogin ? middleware.login(username: username, password: password) : middleware.register(username: username, password: password)
+    fileprivate func send() {
+        shouldRegister ?
+            middleware.login(username: credential.username, password: credential.password) :
+            middleware.register(username: credential.username, password: credential.password)
     }
 }
 
@@ -46,6 +68,13 @@ extension Registrar: HTTPUtilityDelegate {
         guard let status = data["status"] as? Int else { failedRequest(response: "No status recieved."); return }
         if status == 1 {
             failedRequest(response: data["message"] as? String ?? "Some error occurred.")
+            return
+        }
+        
+        // Login.
+        if shouldRegister {
+            shouldRegister = !shouldRegister
+            send()
             return
         }
         

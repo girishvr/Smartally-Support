@@ -9,7 +9,7 @@
 import Koloda
 import UIKit
 
-class HomeViewController: BaseViewController {
+class HomeViewController: BaseViewController, JobViewDelegate {
     
     // @IBOutlets.
     @IBOutlet weak var viewKoloda: KolodaView!
@@ -18,9 +18,9 @@ class HomeViewController: BaseViewController {
     var didLoad: Bool = false
     
     // Class Instances.
-    
     var viewJob: JobView {
         let view = Bundle.main.loadNibNamed("JobView", owner: self, options: nil)?.first as! JobView
+        view.delegate = self
         return view
     }
     
@@ -30,11 +30,11 @@ class HomeViewController: BaseViewController {
         return job
     }
     
-    lazy var updateJob: UpdateJob = {
+    var updateJob: UpdateJob {
         let update = UpdateJob()
         update.delegate = self
         return update
-    }()
+    }
 
     // Lifecycle.
     override func viewDidLoad() { super.viewDidLoad(); onViewDidLoad() }
@@ -71,7 +71,7 @@ extension HomeViewController: GetJobDelegate {
     func failed(withError error: String) {
         indicator.stop()
         dropBanner(withString: error)
-        _ = (error == "Job already completed." || error == "Job not found,") ?
+        _ = (error == "Job already completed." || error == "Job not found.") ?
             getJobs() :
             viewKoloda.revertAction()
     }
@@ -97,7 +97,6 @@ extension HomeViewController: KolodaViewDataSource {
         
         let view = viewJob
         view.tag = index
-        view.job = Job.jobs[index]
         return view
     }
     
@@ -113,8 +112,12 @@ extension HomeViewController: KolodaViewDelegate {
         return !Job.jobs.isEmpty
     }
     
+    func koloda(_ koloda: KolodaView, shouldSwipeCardAt index: Int, in direction: SwipeResultDirection) -> Bool {
+        return direction == .right
+    }
+    
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
-        direction == .left ? swipedLeft(jobAtIndex: index) : swipedRight(jobAtIndex: index)
+        swiped(jobAtIndex: index)
     }
     
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
@@ -123,9 +126,9 @@ extension HomeViewController: KolodaViewDelegate {
 }
 
 // Swiped Right.
-extension HomeViewController {
+extension HomeViewController: UpdateJobDelegate {
     
-    func swipedRight(jobAtIndex index: Int) {
+    func swiped(jobAtIndex index: Int) {
         guard Job.jobs.indices.contains(index) else { dropBanner(withString: "Invalid job."); return }
         do
         {
@@ -144,34 +147,10 @@ extension HomeViewController {
         }
         catch {} // Nope, never ever!
     }
-}
-
-// Swiped Left.
-extension HomeViewController: EditDelegate, UpdateJobDelegate {
-    
-    func swipedLeft(jobAtIndex index: Int) {
-        editJob(atIndex: index)
-    }
-    
-    func editJob(atIndex index: Int) {
-        guard Job.jobs.indices.contains(index) else { dropBanner(withString: "Invalid job."); return }
-        let view = EditJobView(frame: self.view.bounds, job: Job.jobs[index])
-        view.delegate = self
-        self.view.addSubview(view)
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            view.viewJob.textFieldName.becomeFirstResponder()
-        }
-    }
     
     func update(job: Job.Job) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
         indicator.start(onView: view)
         updateJob.updateJob(job: job)
-    }
-    
-    func cancelled() {
-        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func updated(jobWithID ID: String) {
