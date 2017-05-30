@@ -37,25 +37,9 @@
                                         <outlet property="delegate" destination="iN0-l3-epB" id="RhV-06-a1u"/>
                                     </connections>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SLk-Sa-cWC">
-                                    <rect key="frame" x="8" y="33" width="140" height="25"/>
+                                <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Invoice Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veP-Nr-bsC">
+                                    <rect key="frame" x="8" y="33" width="288" height="25"/>
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="v5k-Ih-Rj7"/>
-                                    </constraints>
-                                    <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="iN0-l3-epB" id="v9l-mo-mEH"/>
-                                    </connections>
-                                </textField>
-                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Invoice Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veP-Nr-bsC">
-                                    <rect key="frame" x="8" y="58" width="288" height="25"/>
-                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="25" id="aGD-ZY-zxH"/>
-                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -63,15 +47,25 @@
                                         <outlet property="delegate" destination="iN0-l3-epB" id="DGG-TL-Jh8"/>
                                     </connections>
                                 </textField>
+                                <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SLk-Sa-cWC">
+                                    <rect key="frame" x="8" y="58" width="144" height="25"/>
+                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="iN0-l3-epB" id="v9l-mo-mEH"/>
+                                    </connections>
+                                </textField>
                                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xWk-zR-umO">
-                                    <rect key="frame" x="156" y="33" width="140" height="25"/>
+                                    <rect key="frame" x="152" y="58" width="144" height="25"/>
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUa-pC-2T5">
-                                    <rect key="frame" x="156" y="33" width="140" height="25"/>
+                                    <rect key="frame" x="152" y="58" width="144" height="25"/>
                                     <connections>
                                         <action selector="showDatePicker:" destination="iN0-l3-epB" eventType="touchUpInside" id="ZUE-uX-PuP"/>
                                     </connections>
@@ -79,24 +73,29 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="veP-Nr-bsC" secondAttribute="trailing" constant="8" id="35H-LN-WoE"/>
-                                <constraint firstItem="xWk-zR-umO" firstAttribute="top" secondItem="Opi-OB-oqy" secondAttribute="bottom" id="BLp-lg-ejq"/>
+                                <constraint firstItem="xWk-zR-umO" firstAttribute="height" secondItem="SLk-Sa-cWC" secondAttribute="height" id="ABN-7t-tZ9"/>
+                                <constraint firstAttribute="trailing" secondItem="UUa-pC-2T5" secondAttribute="trailing" constant="8" id="AWz-JZ-hls"/>
                                 <constraint firstItem="Opi-OB-oqy" firstAttribute="top" secondItem="H3p-2w-Fl8" secondAttribute="top" constant="8" id="CIU-za-5q7"/>
                                 <constraint firstItem="Opi-OB-oqy" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="EHa-zz-VjO"/>
-                                <constraint firstItem="veP-Nr-bsC" firstAttribute="top" secondItem="UUa-pC-2T5" secondAttribute="bottom" id="FI0-Un-kJE"/>
-                                <constraint firstItem="xWk-zR-umO" firstAttribute="width" secondItem="SLk-Sa-cWC" secondAttribute="width" id="G8n-Z2-RiT"/>
-                                <constraint firstAttribute="bottom" secondItem="veP-Nr-bsC" secondAttribute="bottom" constant="8" id="N5L-c8-7MR"/>
+                                <constraint firstAttribute="trailing" secondItem="xWk-zR-umO" secondAttribute="trailing" constant="8" id="IJ4-2c-fYH"/>
+                                <constraint firstItem="veP-Nr-bsC" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="IeI-e4-hxA"/>
+                                <constraint firstAttribute="trailing" secondItem="veP-Nr-bsC" secondAttribute="trailing" constant="8" id="Mde-M9-7iU"/>
                                 <constraint firstAttribute="trailing" secondItem="Opi-OB-oqy" secondAttribute="trailing" constant="8" id="Pdu-oh-9rc"/>
-                                <constraint firstItem="xWk-zR-umO" firstAttribute="leading" secondItem="SLk-Sa-cWC" secondAttribute="trailing" constant="8" id="Ri4-Ms-wiE"/>
-                                <constraint firstItem="UUa-pC-2T5" firstAttribute="top" secondItem="Opi-OB-oqy" secondAttribute="bottom" id="Rxl-nM-WuO"/>
-                                <constraint firstItem="SLk-Sa-cWC" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="VMB-wZ-qhB"/>
-                                <constraint firstAttribute="trailing" secondItem="xWk-zR-umO" secondAttribute="trailing" constant="8" id="WBq-1L-3g2"/>
-                                <constraint firstItem="SLk-Sa-cWC" firstAttribute="top" secondItem="Opi-OB-oqy" secondAttribute="bottom" id="cW8-AJ-wFE"/>
-                                <constraint firstItem="veP-Nr-bsC" firstAttribute="top" secondItem="xWk-zR-umO" secondAttribute="bottom" id="dpk-AM-Utp"/>
-                                <constraint firstItem="veP-Nr-bsC" firstAttribute="top" secondItem="SLk-Sa-cWC" secondAttribute="bottom" id="k0w-vD-URC"/>
-                                <constraint firstItem="UUa-pC-2T5" firstAttribute="leading" secondItem="SLk-Sa-cWC" secondAttribute="trailing" constant="8" id="nYc-Eb-oEs"/>
-                                <constraint firstItem="veP-Nr-bsC" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="tAe-FO-Ner"/>
-                                <constraint firstAttribute="trailing" secondItem="UUa-pC-2T5" secondAttribute="trailing" constant="8" id="y6k-Td-29j"/>
+                                <constraint firstItem="SLk-Sa-cWC" firstAttribute="width" secondItem="xWk-zR-umO" secondAttribute="width" id="Twt-Nn-grS"/>
+                                <constraint firstItem="veP-Nr-bsC" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="WIT-gS-Jjo"/>
+                                <constraint firstItem="xWk-zR-umO" firstAttribute="leading" secondItem="SLk-Sa-cWC" secondAttribute="trailing" id="Z95-9e-QxX"/>
+                                <constraint firstItem="UUa-pC-2T5" firstAttribute="leading" secondItem="SLk-Sa-cWC" secondAttribute="trailing" id="ZAt-9D-Aw2"/>
+                                <constraint firstItem="veP-Nr-bsC" firstAttribute="height" secondItem="xWk-zR-umO" secondAttribute="height" id="ZOF-KU-tV9"/>
+                                <constraint firstItem="SLk-Sa-cWC" firstAttribute="leading" secondItem="H3p-2w-Fl8" secondAttribute="leading" constant="8" id="aM0-E3-6EO"/>
+                                <constraint firstItem="veP-Nr-bsC" firstAttribute="top" secondItem="Opi-OB-oqy" secondAttribute="bottom" id="exy-nA-6fC"/>
+                                <constraint firstItem="UUa-pC-2T5" firstAttribute="top" secondItem="veP-Nr-bsC" secondAttribute="bottom" id="fgA-hU-yud"/>
+                                <constraint firstAttribute="trailing" secondItem="veP-Nr-bsC" secondAttribute="trailing" constant="8" id="jkG-rE-W3j"/>
+                                <constraint firstAttribute="bottom" secondItem="UUa-pC-2T5" secondAttribute="bottom" constant="8" id="mjU-1B-cct"/>
+                                <constraint firstItem="Opi-OB-oqy" firstAttribute="height" secondItem="veP-Nr-bsC" secondAttribute="height" id="pul-Dr-5vd"/>
+                                <constraint firstAttribute="bottom" secondItem="xWk-zR-umO" secondAttribute="bottom" constant="8" id="qon-bA-Ijc"/>
+                                <constraint firstItem="veP-Nr-bsC" firstAttribute="top" secondItem="Opi-OB-oqy" secondAttribute="bottom" id="qxb-8A-RJQ"/>
+                                <constraint firstItem="xWk-zR-umO" firstAttribute="top" secondItem="veP-Nr-bsC" secondAttribute="bottom" id="uQl-3T-lp5"/>
+                                <constraint firstAttribute="bottom" secondItem="SLk-Sa-cWC" secondAttribute="bottom" constant="8" id="ulE-ok-dbF"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

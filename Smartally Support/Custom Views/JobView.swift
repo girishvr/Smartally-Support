@@ -105,6 +105,7 @@ extension JobView: UITextFieldDelegate {
         default:
             break
         }
+        set()
     }
     
     // .2 places decimal logic.

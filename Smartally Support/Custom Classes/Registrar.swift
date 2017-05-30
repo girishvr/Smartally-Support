@@ -40,7 +40,7 @@ class Registrar {
     var shouldRegister: Bool
     
     // Init.
-    init(credential: Credential, shouldRegister: Bool = true) {
+    init(credential: Credential, shouldRegister: Bool) {
         self.credential = credential
         self.shouldRegister = shouldRegister
         self.send()
@@ -49,8 +49,8 @@ class Registrar {
     // Send request.
     fileprivate func send() {
         shouldRegister ?
-            middleware.login(username: credential.username, password: credential.password) :
-            middleware.register(username: credential.username, password: credential.password)
+            middleware.register(username: credential.username, password: credential.password) :
+            middleware.login(username: credential.username, password: credential.password)
     }
 }
 

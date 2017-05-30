@@ -96,7 +96,7 @@ extension HomeViewController: KolodaViewDataSource {
         }
         
         let view = viewJob
-        view.tag = index
+        view.tag = index; view.set()
         return view
     }
     
