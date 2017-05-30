@@ -8,13 +8,20 @@
 
 import UIKit
 
+let user = User()
+
 class User {
     
-    static let defaults = UserDefaults.standard
-    static var id: String   = ""
-    static var name: String = ""
+    let defaults = UserDefaults.standard
+    var id: String   = ""
+    var name: String = ""
     
-    static func logIn(user: [String : String]) {
+    init() {
+        guard let user = defaults.object(forKey: "user") as? [String : String] else { return }
+        updateUserDetails(user: user)
+    }
+    
+    func updateUserDetails(user: [String : String]) {
         // Store values in class for app access.
         if let name = user["username"] {
             self.name = name
@@ -23,7 +30,10 @@ class User {
         if let id = user["id"] {
             self.id = id
         }
-        
+    }
+    
+    func logIn(user: [String : String]) {
+        updateUserDetails(user: user)
         // Store values in UserDefaults for access after the app is relaunched.
         defaults.set(user, forKey: "user")
         // Log user in.
@@ -32,7 +42,7 @@ class User {
         changeRoot()
     }
     
-    static func logOut() {
+    func logOut() {
         // Log user out.
         defaults.set(false, forKey: "isLoggedIn")
         // Remove existing user's information.
@@ -41,7 +51,7 @@ class User {
         changeRoot()
     }
     
-    static func changeRoot() {
+    func changeRoot() {
         guard let delegate = UIApplication.shared.delegate as? AppDelegate else { return }
         delegate.isLoggedIn()
     }

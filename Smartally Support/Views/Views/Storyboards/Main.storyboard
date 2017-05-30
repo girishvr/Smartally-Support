@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -17,11 +17,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bsE-Nl-hmf">
-                                <rect key="frame" x="20" y="20" width="335" height="40"/>
+                                <rect key="frame" x="20" y="20" width="280" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -35,7 +35,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q1Q-rd-UGz">
-                                <rect key="frame" x="20" y="90" width="335" height="40"/>
+                                <rect key="frame" x="20" y="90" width="280" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -49,7 +49,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FB9-gk-62S">
-                                <rect key="frame" x="30" y="150" width="147.5" height="48"/>
+                                <rect key="frame" x="30" y="150" width="120" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="cYH-ct-Vpd"/>
@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RbH-g2-X9S">
-                                <rect key="frame" x="197.5" y="150" width="147.5" height="48"/>
+                                <rect key="frame" x="170" y="150" width="120" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="VaB-jw-GPs"/>
                                 </constraints>
@@ -126,18 +126,28 @@
                         <viewControllerLayoutGuide type="bottom" id="hgh-gK-Crd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="SV6-GN-46k">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oma-Is-BG6" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="0.0" y="20" width="375" height="547"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Right To Update ➡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aP-sD-kSi">
+                                <rect key="frame" x="0.0" y="468" width="320" height="100"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oma-Is-BG6" firstAttribute="leading" secondItem="SV6-GN-46k" secondAttribute="leading" id="3WJ-SK-SiV"/>
+                            <constraint firstItem="6aP-sD-kSi" firstAttribute="leading" secondItem="SV6-GN-46k" secondAttribute="leading" id="Tme-Ns-373"/>
+                            <constraint firstItem="hgh-gK-Crd" firstAttribute="top" secondItem="6aP-sD-kSi" secondAttribute="bottom" id="UYi-B3-ZDR"/>
+                            <constraint firstItem="6aP-sD-kSi" firstAttribute="top" secondItem="oma-Is-BG6" secondAttribute="bottom" id="e9V-Lw-8qZ"/>
                             <constraint firstItem="hgh-gK-Crd" firstAttribute="top" secondItem="oma-Is-BG6" secondAttribute="bottom" constant="100" id="lfO-PC-2iR"/>
+                            <constraint firstAttribute="trailing" secondItem="6aP-sD-kSi" secondAttribute="trailing" id="lri-Vx-hFB"/>
                             <constraint firstItem="oma-Is-BG6" firstAttribute="top" secondItem="zDi-X8-8oj" secondAttribute="bottom" id="xvG-6H-aDU"/>
                             <constraint firstAttribute="trailing" secondItem="oma-Is-BG6" secondAttribute="trailing" id="yag-bt-NuO"/>
                         </constraints>

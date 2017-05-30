@@ -29,11 +29,20 @@ class UpdateJob {
     
     func updateJob(job: Job.Job) {
         // Create parameters.
-        let parameter = [
+        var parameter = [
             "name" : job.name,
             "amount" : job.amount,
-            "userid" : User.id
+            "userid" : user.id
         ]
+        
+        if let date = job.date {
+            parameter.updateValue(date.toISO(), forKey: "date")
+        }
+        
+        if !job.invoice.isEmpty {
+            parameter.updateValue(job.invoice, forKey: "invoice")
+        }
+        
         // Update.
         ongoingJobID = job.ID
         middleware.updateJob(withID: job.ID, parameters: parameter)

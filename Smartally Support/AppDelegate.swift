@@ -49,7 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     
     // Token Refresh Delegate.
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
-        print("***********\n\n\n", fcmToken, "\n\n\n***********")
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            Middleware().update(token: fcmToken)
+        }
     }
     
     // Login flow.

@@ -37,7 +37,6 @@ class JobView: UIView {
 
     func set() {
         let job = Job.jobs[tag]
-        print(job.imageEp?.absoluteString ?? "No ep.", "Image EP")
         // Set image.
         if let url = job.imageEp {
             imageView.kf.setImage(with: url, placeholder: UIImage(named: "jobs_placeholder"))

@@ -47,6 +47,12 @@ class Middleware {
             return baseURL + "job?id="
         }
     }
+    
+    fileprivate var identifier: String {
+        get {
+            return baseURL + "updateID?id=" + user.id
+        }
+    }
 }
 
 extension Middleware {
@@ -59,6 +65,11 @@ extension Middleware {
     func login(username usn: String, password pwd: String) {
         let parameter = ["username" : usn, "password" : pwd, "identifier" : Messaging.messaging().fcmToken ?? ""]
         http.send(url: login, method: .post, parameters: parameter)
+    }
+    
+    func update(token: String) {
+        let parameter = ["identifier" : token]
+        http.send(url: identifier, method: .put, parameters: parameter)
     }
 }
 
