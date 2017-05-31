@@ -57,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
     // Login flow.
     func isLoggedIn() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
         let root = !UserDefaults.standard.bool(forKey: "isLoggedIn") ?
             storyboard.instantiateViewController(withIdentifier: "LoginRegisterViewController") as! LoginRegisterViewController :
             storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
@@ -65,7 +66,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate {
         window?.rootViewController = nav
         window?.makeKeyAndVisible()
     }
-
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        print(userInfo)
+        delegate?.getJobs()
+    }
+    
     func applicationWillResignActive(_      application: UIApplication) {}
     func applicationDidEnterBackground(_    application: UIApplication) {}
     func applicationWillEnterForeground(_   application: UIApplication) {}

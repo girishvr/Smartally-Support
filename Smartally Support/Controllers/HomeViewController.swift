@@ -9,7 +9,15 @@
 import Koloda
 import UIKit
 
-class HomeViewController: BaseViewController, JobViewDelegate {
+protocol NotificationDelegate {
+   func getJobs()
+}
+
+var delegate : NotificationDelegate?
+
+var didReceiveNotification = false
+
+class HomeViewController: BaseViewController, JobViewDelegate , NotificationDelegate {
     
     // @IBOutlets.
     @IBOutlet weak var viewKoloda: KolodaView!
@@ -44,14 +52,17 @@ class HomeViewController: BaseViewController, JobViewDelegate {
         // Koloda preferences.
         viewKoloda.dataSource = self
         viewKoloda.delegate = self
+        delegate = self
         // Navigation Bar preferences.
         let reloadButton = UIBarButtonItem(title: "More Jobs", style: .plain, target: self, action: #selector(getJobs))
         navigationItem.rightBarButtonItem = reloadButton
     }
     
     func onViewDidAppear() {
+        
         if didLoad { reload(); return }
         didLoad = true
+        
         getJobs()
     }
     
@@ -159,3 +170,27 @@ extension HomeViewController: UpdateJobDelegate {
         reload()
     }
 }
+
+extension UIViewController {
+    func topMostViewController() -> UIViewController {
+        // Handling Modal views
+        if let presentedViewController = self.presentedViewController {
+            return presentedViewController.topMostViewController()
+        }
+            // Handling UIViewController's added as subviews to some other views.
+        else {
+            for view in self.view.subviews
+            {
+                // Key property which most of us are unaware of / rarely use.
+                if let subViewController = view.next {
+                    if subViewController is UIViewController {
+                        let viewController = subViewController as! UIViewController
+                        return viewController.topMostViewController()
+                    }
+                }
+            }
+            return self
+        }
+    }
+}
+
