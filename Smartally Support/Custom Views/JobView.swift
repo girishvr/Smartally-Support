@@ -25,23 +25,36 @@ class JobView: UIView {
         view.delegate = self
         return view
     }()
+    
+    lazy var scroller: ImageScrollView = {
+        let scroll = ImageScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height - 170))
+        return scroll
+    }()
 
     // @IBOutlets.
-    @IBOutlet weak var imageView: UIImageView!
+   // @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var textFieldName: UITextField!
     @IBOutlet weak var textFieldAmount: UITextField!
     @IBOutlet weak var textFieldDate: UITextField!
     @IBOutlet weak var textFieldInvoice: UITextField!
+   
+   // @IBOutlet weak var scrollableView: ImageScrollView!
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { super.touchesBegan(touches, with: event); endEditing(true) }
-
+    
     func set() {
+        self.addSubview(scroller)
+        scroller.imageView.kf.indicatorType = .activity
         let job = Job.jobs[tag]
         // Set image.
         if let url = job.imageEp {
-            imageView.kf.setImage(with: url, placeholder: UIImage(named: "jobs_placeholder"))
+            
+            scroller.imageView.kf.setImage(with: url, placeholder: UIImage(named: "jobs_placeholder"))
+            
+           // imageView.kf.setImage(with: url, placeholder: UIImage(named: "jobs_placeholder"))
         }
-        else { imageView.image = UIImage(named: "jobs_placeholder") }
+        else { scroller.imageView.image = UIImage(named: "jobs_placeholder") }
         // Other texts.
         textFieldName.text = job.name
         textFieldAmount.text = job.amount

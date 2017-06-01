@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50EF2F321EDEC28C00178501 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50EF2F311EDEC28C00178501 /* ImageScrollView.swift */; };
 		7501AB3F1ED41BA7006E32DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7501AB3E1ED41BA7006E32DC /* GoogleService-Info.plist */; };
-		7501AB411ED42974006E32DC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501AB401ED42974006E32DC /* HomeViewController.swift */; };
+		7501AB411ED42974006E32DC /*  HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501AB401ED42974006E32DC /*  HomeViewController.swift */; };
 		7501AB441ED43680006E32DC /* JobView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7501AB431ED43680006E32DC /* JobView.xib */; };
 		7501AB461ED43A4C006E32DC /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7501AB451ED43A4C006E32DC /* JobView.swift */; };
 		75D032461ECEC34900FDB4DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D032451ECEC34900FDB4DD /* AppDelegate.swift */; };
@@ -35,8 +36,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50EF2F311EDEC28C00178501 /* ImageScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageScrollView.swift; path = "Custom Views/ImageScrollView.swift"; sourceTree = "<group>"; };
 		7501AB3E1ED41BA7006E32DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		7501AB401ED42974006E32DC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = Controllers/HomeViewController.swift; sourceTree = "<group>"; };
+		7501AB401ED42974006E32DC /*  HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = " HomeViewController.swift"; path = "Controllers/ HomeViewController.swift"; sourceTree = "<group>"; };
 		7501AB431ED43680006E32DC /* JobView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = JobView.xib; path = Views/XIBs/JobView.xib; sourceTree = "<group>"; };
 		7501AB451ED43A4C006E32DC /* JobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobView.swift; path = "Custom Views/JobView.swift"; sourceTree = "<group>"; };
 		7590E7921EDC12B900EC9AF2 /* Smartally Support.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Smartally Support.entitlements"; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 			children = (
 				75D032621ECECD6C00FDB4DD /* BaseViewController.swift */,
 				75F34AE81ED5926F00D5A8AD /* LoginRegisterViewController.swift */,
-				7501AB401ED42974006E32DC /* HomeViewController.swift */,
+				7501AB401ED42974006E32DC /*  HomeViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -215,6 +217,7 @@
 				75D4E3211ED016C8008E8DBD /* ILIndicator.swift */,
 				75F34AE61ED56B2B00D5A8AD /* DatePickerView.swift */,
 				7501AB451ED43A4C006E32DC /* JobView.swift */,
+				50EF2F311EDEC28C00178501 /* ImageScrollView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				75D4E3201ED016B3008E8DBD /* ILBanner.swift in Sources */,
 				75F34AE71ED56B2B00D5A8AD /* DatePickerView.swift in Sources */,
 				75D032731ECED0BA00FDB4DD /* Middleware.swift in Sources */,
+				50EF2F321EDEC28C00178501 /* ImageScrollView.swift in Sources */,
 				75D032711ECED0A100FDB4DD /* HTTPUtility.swift in Sources */,
 				75D032691ECECDD100FDB4DD /* Job.swift in Sources */,
 				75D032461ECEC34900FDB4DD /* AppDelegate.swift in Sources */,
@@ -366,7 +370,7 @@
 				75F34AEB1ED5934800D5A8AD /* Validator.swift in Sources */,
 				7501AB461ED43A4C006E32DC /* JobView.swift in Sources */,
 				75F34AE91ED5926F00D5A8AD /* LoginRegisterViewController.swift in Sources */,
-				7501AB411ED42974006E32DC /* HomeViewController.swift in Sources */,
+				7501AB411ED42974006E32DC /*  HomeViewController.swift in Sources */,
 				75D4E3301ED03EDE008E8DBD /* UpdateJob.swift in Sources */,
 				75D032631ECECD6C00FDB4DD /* BaseViewController.swift in Sources */,
 			);

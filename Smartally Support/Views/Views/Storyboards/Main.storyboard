@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -130,11 +130,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oma-Is-BG6" customClass="KolodaView" customModule="Koloda">
-                                <rect key="frame" x="0.0" y="20" width="320" height="448"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="478"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Right To Update ➡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aP-sD-kSi">
-                                <rect key="frame" x="0.0" y="468" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="498" width="320" height="70"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -146,7 +146,7 @@
                             <constraint firstItem="6aP-sD-kSi" firstAttribute="leading" secondItem="SV6-GN-46k" secondAttribute="leading" id="Tme-Ns-373"/>
                             <constraint firstItem="hgh-gK-Crd" firstAttribute="top" secondItem="6aP-sD-kSi" secondAttribute="bottom" id="UYi-B3-ZDR"/>
                             <constraint firstItem="6aP-sD-kSi" firstAttribute="top" secondItem="oma-Is-BG6" secondAttribute="bottom" id="e9V-Lw-8qZ"/>
-                            <constraint firstItem="hgh-gK-Crd" firstAttribute="top" secondItem="oma-Is-BG6" secondAttribute="bottom" constant="100" id="lfO-PC-2iR"/>
+                            <constraint firstItem="hgh-gK-Crd" firstAttribute="top" secondItem="oma-Is-BG6" secondAttribute="bottom" constant="70" id="lfO-PC-2iR"/>
                             <constraint firstAttribute="trailing" secondItem="6aP-sD-kSi" secondAttribute="trailing" id="lri-Vx-hFB"/>
                             <constraint firstItem="oma-Is-BG6" firstAttribute="top" secondItem="zDi-X8-8oj" secondAttribute="bottom" id="xvG-6H-aDU"/>
                             <constraint firstAttribute="trailing" secondItem="oma-Is-BG6" secondAttribute="trailing" id="yag-bt-NuO"/>
