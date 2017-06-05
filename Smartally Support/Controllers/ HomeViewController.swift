@@ -124,11 +124,11 @@ extension HomeViewController: KolodaViewDelegate {
     }
     
     func koloda(_ koloda: KolodaView, shouldSwipeCardAt index: Int, in direction: SwipeResultDirection) -> Bool {
-        return direction == .right
+        return direction == .right || direction == .left
     }
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection) {
-        swiped(jobAtIndex: index)
+        if direction == .right{ swiped(jobAtIndex: index) } else { swipedLeft(jobAtIndex: index) }
     }
     
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
@@ -168,6 +168,16 @@ extension HomeViewController: UpdateJobDelegate {
         // Remove the updated job.
         Job.deleteJob(byID: ID)
         reload()
+    }
+}
+
+// Swiped left.
+extension HomeViewController {
+   
+    func swipedLeft(jobAtIndex index: Int) {
+        if index == Job.jobs.count { return }
+       let _ = viewKoloda.viewForCard(at: index + 1)
+        
     }
 }
 
