@@ -27,7 +27,7 @@ class JobView: UIView {
     }()
     
     lazy var scroller: ImageScrollView = {
-        let scroll = ImageScrollView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height - 170))
+        let scroll = ImageScrollView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.frame.height - 170))
         return scroll
     }()
 
