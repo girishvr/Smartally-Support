@@ -57,7 +57,8 @@ class JobView: UIView {
         else { scroller.imageView.image = UIImage(named: "jobs_placeholder") }
         // Other texts.
         textFieldName.text = job.name
-        textFieldAmount.text = job.amount
+        if job.amount == " " { textFieldAmount.text = "" } else { textFieldAmount.text = job.amount}
+        
         textFieldDate.text = job.date?.mediumStyle() ?? ""
         textFieldInvoice.text = job.invoice
     }

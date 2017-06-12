@@ -66,7 +66,7 @@ extension Registrar: HTTPUtilityDelegate {
     
     func validate(data: [String : AnyObject]) {
         guard let status = data["status"] as? Int else { failedRequest(response: "No status recieved."); return }
-        if status == 1 {
+        if status == 400 {
             failedRequest(response: data["message"] as? String ?? "Some error occurred.")
             return
         }
@@ -78,7 +78,7 @@ extension Registrar: HTTPUtilityDelegate {
             return
         }
         
-        guard let _user = data["user"] as? [String : String] else { failedRequest(response: "No user info recieved."); return }
+        guard let _user = data["user_details"] as? [String : AnyObject] else { failedRequest(response: "No user info recieved."); return }
         user.logIn(user: _user)
     }
 }

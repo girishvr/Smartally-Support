@@ -35,7 +35,7 @@ extension GetJob: HTTPUtilityDelegate {
     
     func completedRequest(response: [String : AnyObject]) {
         guard let status = response["status"] as? Int else { failedRequest(response: "Status not available."); return }
-        if status == 1 {
+        if status == 400 {
             failedRequest(response: response["message"] as? String ?? "Some error occurred.")
             return
         }

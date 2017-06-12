@@ -55,6 +55,21 @@ public extension String {
     }
 }
 
+// MARK: Int
+public extension Int {
+    var toString: String {
+        return String(self)
+    }
+}
+
+// MARK: Double
+public extension Double {
+    var toString: String {
+        return String(self)
+    }
+}
+
+
 public extension Date {
     
     func mediumStyle() -> String {

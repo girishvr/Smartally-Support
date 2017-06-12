@@ -17,22 +17,22 @@ class User {
     var name: String = ""
     
     init() {
-        guard let user = defaults.object(forKey: "user") as? [String : String] else { return }
+        guard let user = defaults.object(forKey: "user") as? [String : AnyObject] else { return }
         updateUserDetails(user: user)
     }
     
-    func updateUserDetails(user: [String : String]) {
+    func updateUserDetails(user: [String : AnyObject]) {
         // Store values in class for app access.
         if let name = user["username"] {
-            self.name = name
+            self.name = name as! String
         }
         
-        if let id = user["id"] {
-            self.id = id
+        if let id = user["pk"] {
+            self.id = String(describing: id)
         }
     }
     
-    func logIn(user: [String : String]) {
+    func logIn(user: [String : AnyObject]) {
         updateUserDetails(user: user)
         // Store values in UserDefaults for access after the app is relaunched.
         defaults.set(user, forKey: "user")

@@ -26,20 +26,37 @@ class HTTPUtility {
 extension HTTPUtility {
     
     func send(url: String, method: HTTPMethod, parameters: Parameters? = nil, headers: HTTPHeaders? = nil) {
-        request = Alamofire
-            .request(url,
-                     method: method,
-                     parameters: parameters,
-                     headers: headers)
-            .responseJSON() { (response) in
-                switch response.result {
-                case .success:
-                    self.success(response.result.value)
-                case .failure(let error):
-                    self.failure(error)
-                }
+        print(url)
+//        request = Alamofire
+//            .request(url,
+//                     method: method,
+//                     parameters: parameters,
+//                     headers: headers)
+//            .responseJSON() { (response) in
+//                print(response)
+//                switch response.result {
+//                case .success:
+//                    self.success(response.result.value)
+//                case .failure(let error):
+//                    self.failure(error)
+//                }
+//        }
+        
+        request = Alamofire.request(url,
+                                    method: method,
+                                    parameters: parameters,
+                                    encoding: JSONEncoding(options: []))
+        .responseJSON() { (response) in
+            print(response)
+            switch response.result {
+            case .success:
+                self.success(response.result.value)
+            case .failure(let error):
+                self.failure(error)
+            }
         }
-    }
+
+}
     
     private func success(_ data: Any?) {
         guard let data = data as? [String : AnyObject] else { failure(nil); return }

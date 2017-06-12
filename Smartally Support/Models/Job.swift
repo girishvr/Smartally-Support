@@ -20,7 +20,7 @@ class Job {
         var invoice: String = ""
         
         init(with jobJSON: [String : AnyObject]) {
-            if let value = jobJSON["_id"] as? String { ID = value }
+            if let value = jobJSON["pk"] as? Int { ID = value.toString }
             
             if let value = jobJSON["imageEp"] as? String { imageEp = URL(string: value) }
             
@@ -28,9 +28,9 @@ class Job {
             
             if let value = jobJSON["amount"] as? String { amount = value }
             
-            if let value = jobJSON["invoiceNo"] as? String { invoice = value }
+            if let value = jobJSON["invoice_no"] as? String { invoice = value }
             
-            if let value = jobJSON["billDate"] as? String {
+            if let value = jobJSON["date"] as? String {
                 guard let date = value.ISOToDate() else { return }
                 self.date = date
             }
@@ -51,6 +51,20 @@ extension Job.Job: Equatable {
         return lhs.ID == rhs.ID
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

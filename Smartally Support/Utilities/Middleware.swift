@@ -8,11 +8,13 @@
 
 import FirebaseMessaging
 import UIKit
+import Alamofire
 
 class Middleware {
     
     // Class' shared instance.
     static let shared = Middleware()
+    
     // Http Utility Class' instance.
     lazy var http: HTTPUtility = {
         let http = HTTPUtility.shared
@@ -22,29 +24,29 @@ class Middleware {
     var delegate: HTTPUtilityDelegate?
     
     // URLs.
-    private let baseURL = "https://smartallysupport.herokuapp.com/api/"
+    private let baseURL = "https://reimburse.herokuapp.com/"
     
     fileprivate var register: String {
         get {
-            return baseURL + "register/"
+            return baseURL + "support_register/"
         }
     }
     
     fileprivate var login: String {
         get {
-            return baseURL + "login/"
+            return baseURL + "support_login/"
         }
     }
     
     fileprivate var get: String {
         get {
-            return baseURL + "job/"
+            return baseURL + "get_incomplete_jobs/"
         }
     }
     
     fileprivate var update: String {
         get {
-            return baseURL + "job?id="
+            return baseURL + "update_job/?id="
         }
     }
     
@@ -58,12 +60,15 @@ class Middleware {
 extension Middleware {
     // Login & Register.
     func register(username usn: String, password pwd: String) {
-        let parameter = ["username" : usn, "password" : pwd]
+         let parameter = ["username" : usn, "password" : pwd, "identifier" : Messaging.messaging().fcmToken ?? "","platform" : "ios"]
+        print(parameter)
+
         http.send(url: register, method: .post, parameters: parameter)
     }
     
     func login(username usn: String, password pwd: String) {
-        let parameter = ["username" : usn, "password" : pwd, "identifier" : Messaging.messaging().fcmToken ?? ""]
+        let parameter = ["username" : usn, "password" : pwd]
+        print(parameter)
         http.send(url: login, method: .post, parameters: parameter)
     }
     
@@ -80,6 +85,6 @@ extension Middleware {
     }
     
     func updateJob(withID id: String, parameters: [String : String]) {
-        http.send(url: update + id, method: .put, parameters: parameters)
+        http.send(url: update + id , method: .put, parameters: parameters)
     }
 }
