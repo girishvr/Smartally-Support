@@ -12,12 +12,13 @@ class Validator {
     
     // Enums.
     enum Err: Error {
-        case name, amount, username, password, passwordLength
+        case name, amount, date, username, password, passwordLength
     }
     
     static func validate(job: Job.Job) throws {
         if job.name.isEmpty   { throw Err.name }
         if job.amount.isEmpty { throw Err.amount }
+        if job.date == nil { throw Err.date}
     }
     
     static func validate(credential: Registrar.Credential) throws {

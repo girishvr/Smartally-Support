@@ -156,6 +156,11 @@ extension HomeViewController: UpdateJobDelegate {
             // Bring back the table.
             viewKoloda.revertAction()
         }
+        catch Validator.Err.date {
+            dropBanner(withString: "Can't update job with blank date.")
+            // Bring back the table.
+            viewKoloda.revertAction()
+        }
         catch {} // Nope, never ever!
     }
     

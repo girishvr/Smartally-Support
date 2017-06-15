@@ -7,10 +7,15 @@
 //
 
 import UIKit
+protocol EndEditingDelegate {
+    func endEditing()
+}
+
 
 class ImageScrollView: UIScrollView {
 
     var imageView: UIImageView
+    var edelegate : EndEditingDelegate?
     
     override init(frame: CGRect) {
         self.imageView = UIImageView()
@@ -40,6 +45,19 @@ class ImageScrollView: UIScrollView {
         zoomScale = minScale
         minimumZoomScale = minScale
         maximumZoomScale = 3.0
+        addGesture()
+    }
+    
+    func addGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleGesture))
+        tap.numberOfTapsRequired = 1
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
+    }
+    
+    func handleGesture() {
+        edelegate?.endEditing()
+       // endEditing(true)
     }
 
 }

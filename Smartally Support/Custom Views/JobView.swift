@@ -27,7 +27,8 @@ class JobView: UIView {
     }()
     
     lazy var scroller: ImageScrollView = {
-        let scroll = ImageScrollView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.frame.height - 170))
+        let scroll = ImageScrollView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: Constants.height - 240))
+        scroll.edelegate = self
         return scroll
     }()
 
@@ -71,10 +72,14 @@ class JobView: UIView {
     }
 }
 
-extension JobView: DatePickerDelegate {
+extension JobView: DatePickerDelegate, EndEditingDelegate {
     func selectedDate(_ date: Date) {
         Job.jobs[tag].date = date
         set()
+    }
+    
+    func endEditing() {
+        self.endEditing(true)
     }
 }
 

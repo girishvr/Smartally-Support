@@ -33,16 +33,17 @@ class UpdateJob {
         var parameter = [
             "name" : job.name,
             "amount" : job.amount,
-            "user_id" : user.id
+            "user_id" : user.id,
+            "invoice_no" : job.invoice
         ]
         
         if let date = job.date {
             parameter.updateValue(date.toISO(), forKey: "date")
         }
         
-        if !job.invoice.isEmpty {
-            parameter.updateValue(job.invoice, forKey: "invoice_no")
-        }
+//        if !job.invoice.isEmpty {
+//            parameter.updateValue(job.invoice, forKey: "invoice_no")
+//        }
         
         print(parameter)
         // Update.
