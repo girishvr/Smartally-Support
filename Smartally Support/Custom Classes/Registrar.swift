@@ -79,6 +79,7 @@ extension Registrar: HTTPUtilityDelegate {
         }
         
         guard let _user = data["user_details"] as? [String : AnyObject] else { failedRequest(response: "No user info recieved."); return }
+        print(_user)
         user.logIn(user: _user)
     }
 }

@@ -15,6 +15,7 @@ class User {
     let defaults = UserDefaults.standard
     var id: String   = ""
     var name: String = ""
+    var accessToken: String = ""
     
     init() {
         guard let user = defaults.object(forKey: "user") as? [String : AnyObject] else { return }
@@ -29,6 +30,10 @@ class User {
         
         if let id = user["pk"] {
             self.id = String(describing: id)
+        }
+        
+        if let token = user["access_token"] {
+            self.accessToken = token as! String
         }
     }
     

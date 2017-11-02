@@ -40,7 +40,7 @@ class Middleware {
     
     fileprivate var get: String {
         get {
-            return baseURL + "get_incomplete_jobs/"
+            return baseURL + "get_incomplete_jobs/?access_token=" + user.accessToken
         }
     }
     
@@ -85,6 +85,6 @@ extension Middleware {
     }
     
     func updateJob(withID id: String, parameters: [String : String]) {
-        http.send(url: update + id , method: .put, parameters: parameters)
+        http.send(url: update + id + "&access_token=" + user.accessToken, method: .put, parameters: parameters)
     }
 }
