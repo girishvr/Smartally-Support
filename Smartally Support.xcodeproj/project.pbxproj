@@ -500,7 +500,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Smartally Support/Smartally Support.entitlements";
 				DEVELOPMENT_TEAM = 6TP9C3Z7N8;
 				INFOPLIST_FILE = "Smartally Support/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitjini.Smartally-Support";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,7 +516,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Smartally Support/Smartally Support.entitlements";
 				DEVELOPMENT_TEAM = 6TP9C3Z7N8;
 				INFOPLIST_FILE = "Smartally Support/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitjini.Smartally-Support";
 				PRODUCT_NAME = "$(TARGET_NAME)";
